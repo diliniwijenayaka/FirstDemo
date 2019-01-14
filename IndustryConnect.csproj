@@ -50,12 +50,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Helpers\CommonDriver.cs" />
+    <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\TimeMaterialPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\Program.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,56 +1,16 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IndustryConnect
+namespace IndustryConnect.Pages
 {
-    class Program
+    class TimeMaterialPage
     {
-        static void Main(string[] args)
+        public void AddTimeMaterial(IWebDriver driver)
         {
-            //Initiate the browser
-            IWebDriver driver = new ChromeDriver(@"C:\Users\User\source\repos\IndustryConnect\IndustryConnect\chromedriver_win32");
-
-            //Maximise the browser
-            driver.Manage().Window.Maximize();
-
-            //Load the webpage
-            driver.Navigate().GoToUrl("http://horse-dev.azurewebsites.net/Account/Login?ReturnUrl=%2f");
-
-            //Locate the password textbox and fill in the value
-            IWebElement Username = driver.FindElement(By.Id("UserName"));
-            Username.SendKeys("hari");
-
-            //Locate the password textbox and fill in the value
-            IWebElement Password = driver.FindElement(By.Id("Password"));
-            Password.SendKeys("123123");
-
-            //Locate the login button and click on it
-            IWebElement LogIn = driver.FindElement(By.XPath("//*[@id='loginForm']/form/div[3]/input[1]"));
-            LogIn.Click();
-            //System.Threading.Thread.Sleep(5000);
-
-            //Check if the homepage is loaded
-            IWebElement HelloHari = driver.FindElement(By.XPath("//*[@id='logoutForm']/ul/li/a"));
-            if (HelloHari.Text == "Hello hari!")
-            {
-                Console.WriteLine("Logged in successfully. Test Passed");
-            }
-            else
-            {
-                Console.WriteLine("Log in page not visible. Test Failed");
-            }
-
-            //Navigate to Time and Material page
-            IWebElement Administration = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
-            Administration.Click();
-            IWebElement TimeandMaterial = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
-            TimeandMaterial.Click();
-
             //Click on Create New button
             IWebElement CreateNew = driver.FindElement(By.XPath("//*[@id='container']/p/a"));
             CreateNew.Click();
@@ -95,7 +55,10 @@ namespace IndustryConnect
             {
                 Console.WriteLine("Item is not visible. Test failed");
             }
+        }
 
+        public void EditTimeMaterial(IWebDriver driver)
+        {
             // Locate and click on the Edit button
             System.Threading.Thread.Sleep(2000);
             IWebElement Edit = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[2]/td[5]/a[1]"));
@@ -148,7 +111,10 @@ namespace IndustryConnect
             {
                 Console.WriteLine("Edited item could not be found. Test failed");
             }
+        }
 
+        public void DeleteTimeMaterial(IWebDriver driver)
+        {
             //Locate Delete button and delete the edited item
             IWebElement Delete = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr/td[5]/a[2]"));
             Delete.Click();
@@ -156,7 +122,7 @@ namespace IndustryConnect
             //Capture the text appear in the alart box
             String alart = driver.SwitchTo().Alert().Text;
             Console.WriteLine(alart);
-            if (alart == "actual text")
+            if (alart == "Are you sure you want to delete this record?")
             {
                 driver.SwitchTo().Alert().Accept();
                 Console.WriteLine("Deleted successfully, Test passed");
