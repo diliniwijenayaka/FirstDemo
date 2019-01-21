@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using IndustryConnect.Helpers;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,8 @@ namespace IndustryConnect.Pages
     {
         public void LoginSteps(IWebDriver driver)
         {
-            //Initiate the browser
+            ExcelLibraryHelpers.PopulateInCollection(@"C:\Users\User\source\repos\IndustryConnect\IndustryConnect\DataSource\TestData.xlsx", "LoginPage");
             
-
             //Maximise the browser
             driver.Manage().Window.Maximize();
 
@@ -23,11 +23,11 @@ namespace IndustryConnect.Pages
 
             //Locate the password textbox and fill in the value
             IWebElement Username = driver.FindElement(By.Id("UserName"));
-            Username.SendKeys("hari");
+            Username.SendKeys(ExcelLibraryHelpers.ReadData(2,"Username"));
 
             //Locate the password textbox and fill in the value
             IWebElement Password = driver.FindElement(By.Id("Password"));
-            Password.SendKeys("123123");
+            Password.SendKeys(ExcelLibraryHelpers.ReadData(2,"Password"));
 
             //Locate the login button and click on it
             IWebElement LogIn = driver.FindElement(By.XPath("//*[@id='loginForm']/form/div[3]/input[1]"));
