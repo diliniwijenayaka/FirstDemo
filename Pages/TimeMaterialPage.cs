@@ -129,6 +129,25 @@ namespace IndustryConnect.Pages
 
         public void DeleteTimeMaterial(IWebDriver driver)
         {
+            //Navigate to the last page of Time and Mnaterial list 
+            System.Threading.Thread.Sleep(1000);
+            //IWebElement ForwardButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
+            IWebElement ForwardButton = driver.FindElement(By.XPath("//*[@title='Go to the last page']"));
+            ForwardButton.Click();
+            System.Threading.Thread.Sleep(4000);
+
+            //List<IWebElement> allElement = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[1]/td[1]"));
+            //IWebElement LastRowFetch = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr/td[" + lastRowCount + "]"));
+
+            //List<IWebElement> allElement = driver.FindElement(By.XPath("");
+            //int count = allElement.size();
+            //allElement.get(count - 1).click();
+
+            //Initial Table
+            //IWebElement table = driver.FindElement(By.Id("tmsGrid"));
+            //Get the count of rows
+            //int initRowCount = table.FindElement(By.TagName("tr")).Count;
+
             //Locate Delete button and delete the edited item
             System.Threading.Thread.Sleep(2000);
             IWebElement Delete = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr/td[5]/a[2]"));

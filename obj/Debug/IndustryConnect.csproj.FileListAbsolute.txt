@@ -22,3 +22,7 @@ C:\Users\User\source\repos\IndustryConnect\IndustryConnect\obj\Debug\IndustryCon
 C:\Users\User\source\repos\IndustryConnect\IndustryConnect\obj\Debug\IndustryConnect.csproj.CopyComplete
 C:\Users\User\source\repos\IndustryConnect\IndustryConnect\obj\Debug\IndustryConnect.exe
 C:\Users\User\source\repos\IndustryConnect\IndustryConnect\obj\Debug\IndustryConnect.pdb
+C:\Users\User\source\repos\IndustryConnect\IndustryConnect\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\source\repos\IndustryConnect\IndustryConnect\bin\Debug\System.ValueTuple.dll
+C:\Users\User\source\repos\IndustryConnect\IndustryConnect\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\User\source\repos\IndustryConnect\IndustryConnect\bin\Debug\Newtonsoft.Json.xml
